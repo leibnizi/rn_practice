@@ -9,8 +9,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View, Alert
 } from 'react-native';
+import Father from '../components/father'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -20,6 +21,21 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+
+  firstFun = () => {
+    console.log('firstFun')
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+      { cancelable: false }
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -32,6 +48,12 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Father
+          first={'first'}
+          firstFun={
+            this.firstFun
+          }
+          />
       </View>
     );
   }
