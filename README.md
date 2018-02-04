@@ -1,1 +1,1 @@
-# RN-practice
+# react-native + mobx + react-navigation
