@@ -58,14 +58,15 @@ class Father extends Component {
                 />
               <TouchableHighlight
                 onPress={() => {
-                  this.props.actions.addTodo(this.state.todoText, this.callback)                
+                  this.props.actions.addTodo(this.state.todoText, this.callback)
+                  this.props.actions.addAnthoer('another', this.callback)
                 }}
                 >
                 <Text>增加</Text>
               </TouchableHighlight>
               {
                 this.props.todos.map((item, index)=>
-                  <Text key={index}>{item.text}</Text>
+                  <Text key={index}>{item.text}{this.props.another.length}</Text>
                 )
               }
             </View>
@@ -74,7 +75,8 @@ class Father extends Component {
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  another: state.another
 })
 
 const mapDispatchToProps = dispatch => ({

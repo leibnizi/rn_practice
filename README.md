@@ -1,1 +1,1 @@
-# react-native + mobx + react-navigation
+# react-native + redux + react-navigation
