@@ -1,1 +1,1 @@
-export const addTodo = todoText => ({ type: 'ADD_TODO', todoText })
+export const addTodo = (todoText, callback) => ({ type: 'ADD_TODO', todoText, callback })

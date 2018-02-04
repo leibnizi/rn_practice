@@ -10,13 +10,18 @@ const initialState = [
 export default function todos(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TODO':
-      return [
-        ...state,
-        {
-          completed: false,
-          text: action.todoText
-        }
-      ]
+      if (!action.todoText) {
+        action.callback()
+        return state
+      } else {
+        return [
+          ...state,
+          {
+            completed: false,
+            text: action.todoText
+          }
+        ]
+      }
     default:
       return state
   }

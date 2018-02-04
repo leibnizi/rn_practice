@@ -29,6 +29,10 @@ class Father extends Component {
       })
     }
 
+    callback = () => {
+      console.warn('值为空')
+    }
+
     render() {
         return (
             <View>
@@ -53,7 +57,9 @@ class Father extends Component {
                 value={this.state.todoText}
                 />
               <TouchableHighlight
-                onPress={() => this.props.actions.addTodo(this.state.todoText)}
+                onPress={() => {
+                  this.props.actions.addTodo(this.state.todoText, this.callback)                
+                }}
                 >
                 <Text>增加</Text>
               </TouchableHighlight>
